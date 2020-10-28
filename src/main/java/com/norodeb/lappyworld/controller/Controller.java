@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/lappy")
 public class Controller {
 	
-	
+	@RequestMapping(value = "/addNewLappy", method = RequestMethod.GET)
+	public ResponseEntity<String> AddNewLappy (){
+		return new ResponseEntity<>("Add feature added",HttpStatus.OK);
+	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String HomePage (){
