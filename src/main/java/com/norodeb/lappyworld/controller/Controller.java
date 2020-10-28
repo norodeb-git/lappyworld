@@ -22,6 +22,11 @@ public class Controller {
 		return new ResponseEntity<>("Add feature added",HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/deleteLappy", method = RequestMethod.GET)
+	public ResponseEntity<String> DeleteLappy (){
+		return new ResponseEntity<>("Add feature added",HttpStatus.OK);
+	}
+	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String HomePage (){
 		return "Home Page";
