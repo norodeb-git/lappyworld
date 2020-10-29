@@ -1,5 +1,7 @@
 package com.norodeb.lappyworld.serviceimpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,21 @@ public class LappyService {
 			response = "Exception Occurred: "+e.getMessage();
 		}
 		return response;
+	}
+
+	public List<Lappy> getAllLaptop() {
+		String response = "";
+		List<Lappy> lappies = null;
+		try {
+			lappies = (List<Lappy>) lappyDao.findAll();
+			
+			if(lappies != null) {
+				response = "New Lappy Added Successfully";
+			}
+		}catch (Exception e) {
+			response = "Exception Occurred: "+e.getMessage();
+		}
+		return lappies;
 	}
 	
 }
