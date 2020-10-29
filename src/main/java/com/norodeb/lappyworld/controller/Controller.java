@@ -1,5 +1,7 @@
 package com.norodeb.lappyworld.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.norodeb.lappyworld.dto.LappyDTORequest;
+import com.norodeb.lappyworld.entity.Lappy;
 import com.norodeb.lappyworld.serviceimpl.LappyService;
 
 @RestController
@@ -29,8 +32,10 @@ public class Controller {
 	}
 	
 	@RequestMapping(value = "/getAllLappy", method = RequestMethod.GET)
-	public ResponseEntity<String> ViewAllLappy (){
-		return new ResponseEntity<>("Add feature added",HttpStatus.OK);
+	public ResponseEntity<List<Lappy>> ViewAllLappy (){
+		
+		List<Lappy> response = service.getAllLaptop();
+		return new ResponseEntity<>(response,HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/deleteLappy", method = RequestMethod.DELETE)
